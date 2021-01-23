@@ -9,12 +9,13 @@ import {
 import { Provider } from 'react-redux';
 import {
   createStore,
-  combineReducers
+  combineReducers,
+  applyMiddleware
 } from 'redux';
+import ReduxThunk from 'redux-thunk';
 import { productsReducer } from './store/reducers/products';
 import cartReducer from './store/reducers/cart';
 import orderReducer from './store/reducers/orders';
-
 import ShopNavigator from './navigation/ShopNavigator';
 
 const rootReducer = combineReducers({
@@ -22,7 +23,7 @@ const rootReducer = combineReducers({
   cart: cartReducer,
   orders: orderReducer
 });
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
 
 export default function App() {
   return (

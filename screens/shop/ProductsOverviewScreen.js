@@ -33,6 +33,8 @@ const ProductsOverview = props => {
 
   return (
     <FlatList
+      // onRefresh={} // function to execute on pull down - pull to refresh
+      // refreshing={} // this will be a boolean state
       data={products}
       renderItem={itemData => {
         return <ProductItem
@@ -68,6 +70,13 @@ ProductsOverview.navigationOptions = navData => {
         title='Cart'
         iconName={Platform.OS === 'android' ? 'md-cart' : 'ios-cart'}
         onPress={() => {navData.navigation.navigate('Cart') }}
+      />
+    </HeaderButtons>,
+    headerLeft: <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
+      <Item
+        title='Menu'
+        iconName={Platform.OS === 'android' ? 'md-menu' : 'ios-menu'}
+        onPress={() => {navData.navigation.toggleDrawer() }}
       />
     </HeaderButtons>
   }
