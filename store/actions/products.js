@@ -48,6 +48,7 @@ export const viewProducts = () => {
 export const updateProduct = (product) => {
   return async dispatch => {
     const response = await fetch('https://rn-shop-cart-9481e-default-rtdb.firebaseio.com/products/'+'-MReN0cwVuTRjtuCwfS_.json',
+    // const response = await fetch('https://rn-shop-cart-9481e-default-rtdb.firebaseio.com/products/'+'-MReN0cwVuTRjtuCwfS_.json?auth='GETLOGINTOKEN',
     {
       method: 'PATCH',
       headers: {
